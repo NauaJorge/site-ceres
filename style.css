@@ -167,7 +167,7 @@ figcaption { color: var(--texto-2); font-size: 14px; margin-top: 8px; }
 /* ---------- Videos ---------- */
 .secao-video {
   background:
-    linear-gradient(180deg, rgba(255, 212, 0, .04), transparent 34%),
+    linear-gradient(180deg, rgba(255, 212, 0, .06), transparent 38%),
     var(--preto-2);
   max-width: none;
 }
@@ -188,8 +188,9 @@ figcaption { color: var(--texto-2); font-size: 14px; margin-top: 8px; }
 }
 .videos-grade {
   display: grid;
-  grid-template-columns: 1.15fr repeat(3, minmax(0, .72fr));
+  grid-template-columns: minmax(320px, 1.25fr) repeat(2, minmax(220px, .75fr));
   gap: 16px;
+  align-items: stretch;
 }
 .video-card {
   background: var(--preto-3);
@@ -197,6 +198,17 @@ figcaption { color: var(--texto-2); font-size: 14px; margin-top: 8px; }
   border-radius: var(--raio);
   overflow: hidden;
   box-shadow: 0 14px 34px rgba(0, 0, 0, .22);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
+}
+.video-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-top: 3px solid rgba(255, 212, 0, .82);
+  pointer-events: none;
 }
 .video-card video {
   display: block;
@@ -205,23 +217,39 @@ figcaption { color: var(--texto-2); font-size: 14px; margin-top: 8px; }
   object-fit: cover;
   background: #000;
 }
+.video-card-destaque {
+  grid-row: span 2;
+}
 .video-card-destaque video {
-  aspect-ratio: 10 / 16;
+  aspect-ratio: 4 / 5;
 }
 .video-card figcaption {
-  padding: 12px 14px 14px;
+  padding: 13px 14px 15px;
   margin: 0;
   color: var(--texto-2);
   font-size: 14px;
   line-height: 1.35;
+  min-height: 88px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+}
+.video-card figcaption strong {
+  color: var(--texto);
+  display: block;
+  font-size: 15px;
 }
 @media (max-width: 960px) {
   .secao-cabecalho { display: block; }
   .video-nota { display: inline-block; margin: 0 0 24px; }
   .videos-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .video-card-destaque { grid-row: auto; }
+  .video-card-destaque video { aspect-ratio: 9 / 16; }
 }
 @media (max-width: 560px) {
   .videos-grade { grid-template-columns: 1fr; }
+  .video-card figcaption { min-height: auto; }
 }
 
 /* ---------- Passos ---------- */
@@ -261,9 +289,16 @@ figcaption { color: var(--texto-2); font-size: 14px; margin-top: 8px; }
 
 /* ---------- Onde ---------- */
 .onde-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: start; }
+.onde-grade-simples { grid-template-columns: minmax(0, 760px); }
+.onde-pendencias {
+  background: var(--preto-3);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 24px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .16);
+}
 .onde-grade h3 { margin: 22px 0 6px; font-size: 17px; color: var(--texto); }
 .onde-grade h3:first-child { margin-top: 0; }
-.foto-lado img { border-radius: var(--raio); border: 1px solid var(--borda); }
 @media (max-width: 860px) { .onde-grade { grid-template-columns: 1fr; } }
 
 /* ---------- Sobre ---------- */
