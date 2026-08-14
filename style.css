@@ -4,17 +4,18 @@
    Texto sobre amarelo é sempre escuro. Foco nunca depende só de cor. */
 
 :root {
-  --preto: #0d0d0d;
-  --preto-2: #151515;
-  --preto-3: #1d1d1d;
-  --borda: #2a2a2a;
-  --texto: #f2f2f2;
-  --texto-2: #b8b8b8;
+  --preto: #141414;
+  --preto-2: #1d1d1d;
+  --preto-3: #252525;
+  --preto-4: #2f2f2f;
+  --borda: #3a3a3a;
+  --texto: #f7f4e8;
+  --texto-2: #d0c9b6;
   --amarelo: #ffd400;
   --amarelo-escuro: #d9b400;
   --sobre-amarelo: #1a1600;
   --max: 1120px;
-  --raio: 14px;
+  --raio: 8px;
 }
 
 * { box-sizing: border-box; }
@@ -64,7 +65,7 @@ a:focus-visible, button:focus-visible {
 /* ---------- Topo ---------- */
 .topo {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(13, 13, 13, .92);
+  background: rgba(20, 20, 20, .92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--borda);
 }
@@ -103,7 +104,11 @@ a:focus-visible, button:focus-visible {
   margin: 0 0 18px;
 }
 .linha-apoio { color: var(--texto-2); font-size: 19px; margin: 0 0 26px; max-width: 46ch; }
-.hero-foto img { border-radius: var(--raio); border: 1px solid var(--borda); }
+.hero-foto img {
+  border-radius: var(--raio);
+  border: 1px solid var(--borda);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .28);
+}
 figure { margin: 0; }
 figcaption { color: var(--texto-2); font-size: 14px; margin-top: 8px; }
 
@@ -129,6 +134,13 @@ figcaption { color: var(--texto-2); font-size: 14px; margin-top: 8px; }
 .secao { max-width: var(--max); margin: 0 auto; padding: 56px 20px; }
 .secao-alt { background: var(--preto-2); max-width: none; }
 .secao-alt > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
+.secao-cabecalho {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 26px;
+}
 .secao h2 {
   font-size: clamp(24px, 3.4vw, 32px); margin: 0 0 10px; letter-spacing: -.01em;
 }
@@ -146,10 +158,71 @@ figcaption { color: var(--texto-2); font-size: 14px; margin-top: 8px; }
 .cartao {
   background: var(--preto-3); border: 1px solid var(--borda);
   border-radius: var(--raio); padding: 22px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .16);
 }
 .ico-cartao { width: 30px; height: 30px; color: var(--amarelo); margin-bottom: 12px; }
 .cartao h3 { margin: 0 0 6px; font-size: 19px; }
 .cartao p { margin: 0; color: var(--texto-2); font-size: 16px; }
+
+/* ---------- Videos ---------- */
+.secao-video {
+  background:
+    linear-gradient(180deg, rgba(255, 212, 0, .04), transparent 34%),
+    var(--preto-2);
+  max-width: none;
+}
+.secao-video > * {
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+}
+.video-nota {
+  flex: 0 0 auto;
+  color: var(--sobre-amarelo);
+  background: var(--amarelo);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 30px;
+}
+.videos-grade {
+  display: grid;
+  grid-template-columns: 1.15fr repeat(3, minmax(0, .72fr));
+  gap: 16px;
+}
+.video-card {
+  background: var(--preto-3);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .22);
+}
+.video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: #000;
+}
+.video-card-destaque video {
+  aspect-ratio: 10 / 16;
+}
+.video-card figcaption {
+  padding: 12px 14px 14px;
+  margin: 0;
+  color: var(--texto-2);
+  font-size: 14px;
+  line-height: 1.35;
+}
+@media (max-width: 960px) {
+  .secao-cabecalho { display: block; }
+  .video-nota { display: inline-block; margin: 0 0 24px; }
+  .videos-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .videos-grade { grid-template-columns: 1fr; }
+}
 
 /* ---------- Passos ---------- */
 .passos {
