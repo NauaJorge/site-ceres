@@ -176,71 +176,107 @@ figcaption { color: var(--texto-2); font-size: 14px; margin-top: 8px; }
   margin-left: auto;
   margin-right: auto;
 }
-.video-nota {
-  flex: 0 0 auto;
+.prova-grade {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 34px;
+  align-items: center;
+}
+.rotulo {
+  display: inline-block;
   color: var(--sobre-amarelo);
   background: var(--amarelo);
   border-radius: 999px;
-  padding: 8px 14px;
-  font-size: 14px;
-  font-weight: 700;
-  margin: 0 0 30px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 16px;
 }
-.videos-grade {
+.prova-texto h2 {
+  font-size: clamp(24px, 3.4vw, 32px);
+  line-height: 1.18;
+  letter-spacing: -.01em;
+  margin: 0 0 10px;
+}
+.prova-texto h2::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 3px;
+  background: var(--amarelo);
+  margin-top: 12px;
+  border-radius: 2px;
+}
+.prova-lista {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0;
   display: grid;
-  grid-template-columns: minmax(0, 620px);
-  gap: 20px;
-  justify-content: center;
+  gap: 10px;
 }
-.video-card {
+.prova-lista li {
+  position: relative;
+  color: var(--texto);
+  background: var(--preto-3);
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 11px 14px 11px 38px;
+  font-size: 15px;
+}
+.prova-lista li::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 18px;
+  width: 8px;
+  height: 8px;
+  background: var(--amarelo);
+  border-radius: 50%;
+}
+.prova-video {
+  width: min(100%, 320px);
+  justify-self: end;
   background: var(--preto-3);
   border: 1px solid var(--borda);
   border-radius: var(--raio);
   overflow: hidden;
   box-shadow: 0 14px 34px rgba(0, 0, 0, .22);
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
   position: relative;
 }
-.video-card::before {
+.prova-video::before {
   content: "";
   position: absolute;
   inset: 0;
   border-top: 3px solid rgba(255, 212, 0, .82);
   pointer-events: none;
+  z-index: 1;
 }
-.video-card video {
+.prova-video video {
   display: block;
   width: 100%;
   aspect-ratio: 9 / 16;
   object-fit: cover;
   background: #000;
 }
-.video-card figcaption {
-  padding: 13px 14px 15px;
+.prova-video figcaption {
+  padding: 11px 13px 13px;
   margin: 0;
   color: var(--texto-2);
   font-size: 14px;
   line-height: 1.35;
-  min-height: 74px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 3px;
-}
-.video-card figcaption strong {
-  color: var(--texto);
-  display: block;
-  font-size: 15px;
 }
 @media (max-width: 960px) {
-  .secao-cabecalho { display: block; }
-  .video-nota { display: inline-block; margin: 0 0 24px; }
+  .prova-grade {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .prova-video {
+    justify-self: center;
+    width: min(100%, 300px);
+  }
 }
 @media (max-width: 560px) {
-  .videos-grade { grid-template-columns: 1fr; }
-  .video-card figcaption { min-height: auto; }
+  .prova-video { width: min(100%, 260px); }
 }
 
 /* ---------- Passos ---------- */
