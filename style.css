@@ -1,0 +1,227 @@
+/* Ceres · soluções em tecnologia
+   Preto e amarelo, identidade do Instagram @cerestec.
+   Regra da paleta: preto domina, amarelo é ação e destaque pontual.
+   Texto sobre amarelo é sempre escuro. Foco nunca depende só de cor. */
+
+:root {
+  --preto: #0d0d0d;
+  --preto-2: #151515;
+  --preto-3: #1d1d1d;
+  --borda: #2a2a2a;
+  --texto: #f2f2f2;
+  --texto-2: #b8b8b8;
+  --amarelo: #ffd400;
+  --amarelo-escuro: #d9b400;
+  --sobre-amarelo: #1a1600;
+  --max: 1120px;
+  --raio: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--preto);
+  color: var(--texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+/* Foco visível por contorno, não só por cor */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--amarelo);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.pular {
+  position: absolute; left: -9999px;
+  background: var(--amarelo); color: var(--sobre-amarelo);
+  padding: 12px 18px; font-weight: 700; z-index: 100;
+}
+.pular:focus { left: 12px; top: 12px; }
+
+/* ---------- Aviso de preview ---------- */
+.aviso-preview {
+  background: var(--amarelo);
+  color: var(--sobre-amarelo);
+  padding: 12px 20px;
+  font-size: 15px;
+  text-align: center;
+  line-height: 1.45;
+}
+
+/* ---------- Topo ---------- */
+.topo {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(13, 13, 13, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--borda);
+}
+.faixa {
+  max-width: var(--max); margin: 0 auto;
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+.marca { text-decoration: none; display: block; }
+.marca-nome {
+  display: block;
+  font-size: 30px; font-weight: 800; letter-spacing: -.02em;
+  color: var(--texto); line-height: 1;
+}
+.marca-sub {
+  display: block;
+  font-size: 11px; letter-spacing: .16em; text-transform: lowercase;
+  color: var(--texto-2); margin-top: 3px;
+}
+.topo nav { display: flex; gap: 22px; }
+.topo nav a {
+  color: var(--texto-2); text-decoration: none; font-size: 15px;
+}
+.topo nav a:hover { color: var(--amarelo); }
+@media (max-width: 720px) { .topo nav { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: var(--max); margin: 0 auto;
+  padding: 56px 20px 40px;
+  display: grid; grid-template-columns: 1.15fr .85fr; gap: 44px; align-items: center;
+}
+.hero h1 {
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.14; letter-spacing: -.02em;
+  margin: 0 0 18px;
+}
+.linha-apoio { color: var(--texto-2); font-size: 19px; margin: 0 0 26px; max-width: 46ch; }
+.hero-foto img { border-radius: var(--raio); border: 1px solid var(--borda); }
+figure { margin: 0; }
+figcaption { color: var(--texto-2); font-size: 14px; margin-top: 8px; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; padding-top: 34px; gap: 30px; }
+  .hero-foto { order: -1; }
+}
+
+/* ---------- Botões ---------- */
+.botao {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--amarelo); color: var(--sobre-amarelo);
+  font-weight: 700; font-size: 18px;
+  padding: 15px 26px; border-radius: 999px;
+  text-decoration: none; border: 2px solid var(--amarelo);
+}
+.botao:hover { background: var(--amarelo-escuro); border-color: var(--amarelo-escuro); }
+.botao .ico { width: 22px; height: 22px; fill: currentColor; }
+.botao-desativado { opacity: .55; cursor: not-allowed; }
+.nota-botao { font-size: 13px; color: var(--texto-2); margin: 10px 0 0; }
+
+/* ---------- Seções ---------- */
+.secao { max-width: var(--max); margin: 0 auto; padding: 56px 20px; }
+.secao-alt { background: var(--preto-2); max-width: none; }
+.secao-alt > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
+.secao h2 {
+  font-size: clamp(24px, 3.4vw, 32px); margin: 0 0 10px; letter-spacing: -.01em;
+}
+.secao h2::after {
+  content: ""; display: block; width: 54px; height: 3px;
+  background: var(--amarelo); margin-top: 12px; border-radius: 2px;
+}
+.secao-apoio { color: var(--texto-2); margin: 16px 0 30px; }
+
+/* ---------- Cartões de serviço ---------- */
+.cartoes {
+  list-style: none; padding: 0; margin: 26px 0 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;
+}
+.cartao {
+  background: var(--preto-3); border: 1px solid var(--borda);
+  border-radius: var(--raio); padding: 22px;
+}
+.ico-cartao { width: 30px; height: 30px; color: var(--amarelo); margin-bottom: 12px; }
+.cartao h3 { margin: 0 0 6px; font-size: 19px; }
+.cartao p { margin: 0; color: var(--texto-2); font-size: 16px; }
+
+/* ---------- Passos ---------- */
+.passos {
+  list-style: none; padding: 0; margin: 26px 0 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 20px;
+}
+.passos li { position: relative; padding-top: 8px; }
+.num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--amarelo); color: var(--sobre-amarelo);
+  font-weight: 800; font-size: 19px; margin-bottom: 12px;
+}
+.passos h3 { margin: 0 0 6px; font-size: 19px; }
+.passos p { margin: 0 0 10px; color: var(--texto-2); font-size: 16px; }
+
+/* ---------- Blocos de pendência ---------- */
+.pendencia {
+  border: 2px dashed var(--amarelo);
+  background: rgba(255, 212, 0, .07);
+  color: var(--texto);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 15px;
+  margin: 14px 0;
+}
+.pendencia::before {
+  content: "Falta confirmar com a Ceres";
+  display: block;
+  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--amarelo); margin-bottom: 6px;
+}
+.pendencia-bloco { font-size: 17px; padding: 22px; }
+.pendencia-mini { font-size: 13px; padding: 10px 12px; }
+.pendencia-inline { max-width: 46ch; }
+
+/* ---------- Onde ---------- */
+.onde-grade { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: start; }
+.onde-grade h3 { margin: 22px 0 6px; font-size: 17px; color: var(--texto); }
+.onde-grade h3:first-child { margin-top: 0; }
+.foto-lado img { border-radius: var(--raio); border: 1px solid var(--borda); }
+@media (max-width: 860px) { .onde-grade { grid-template-columns: 1fr; } }
+
+/* ---------- Sobre ---------- */
+.sobre-grade { display: grid; grid-template-columns: 1fr 1.1fr; gap: 34px; align-items: start; }
+.sobre-grade p { color: var(--texto-2); }
+.galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.galeria img { border-radius: 10px; border: 1px solid var(--borda); aspect-ratio: 3/4; object-fit: cover; }
+@media (max-width: 860px) { .sobre-grade { grid-template-columns: 1fr; } }
+
+/* ---------- Links ---------- */
+.link { color: var(--amarelo); text-decoration: underline; text-underline-offset: 3px; }
+.link:hover { color: var(--texto); }
+
+/* ---------- Rodapé ---------- */
+.rodape { border-top: 1px solid var(--borda); background: var(--preto-2); margin-top: 20px; }
+.rodape-grade {
+  max-width: var(--max); margin: 0 auto; padding: 36px 20px 16px;
+  display: flex; justify-content: space-between; gap: 26px; flex-wrap: wrap;
+}
+.credito {
+  max-width: var(--max); margin: 0 auto; padding: 0 20px 90px;
+  color: var(--texto-2); font-size: 13px;
+}
+
+/* ---------- Botão flutuante ---------- */
+.flutuante {
+  position: fixed; right: 16px; bottom: 16px; z-index: 60;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--amarelo); color: var(--sobre-amarelo);
+  font-weight: 700; padding: 13px 20px; border-radius: 999px;
+  text-decoration: none; box-shadow: 0 6px 22px rgba(0, 0, 0, .5);
+}
+.flutuante .ico { width: 22px; height: 22px; fill: currentColor; }
+@media (max-width: 480px) { .flutuante span { display: none; } .flutuante { padding: 15px; } }
