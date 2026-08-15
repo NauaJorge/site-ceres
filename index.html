@@ -271,15 +271,12 @@
           <a class="botao-secundario" href="https://maps.google.com/?cid=13197305598002025175" target="_blank" rel="noopener">Ver no Google Maps <span class="sr">abre em outra aba</span></a>
           <a class="botao-secundario" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Cardoso+de+Morais%2C+145+-+Bonsucesso%2C+Rio+de+Janeiro+-+RJ%2C+21032-025" target="_blank" rel="noopener">Como chegar <span class="sr">abre no Google Maps em outra aba</span></a>
         </div>
-        <div class="mapa-facade" data-mapa>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.4 7-12a7 7 0 1 0-14 0c0 6.6 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.4" fill="currentColor"/></svg>
-          <p>Rua Cardoso de Morais, 145 — Sala 411</p>
-          <button type="button" class="botao-mapa">Abrir o mapa aqui na página</button>
-          <noscript>
-            <style>.botao-mapa{display:none}</style>
-            <p><a class="link" href="https://maps.google.com/?cid=13197305598002025175" target="_blank" rel="noopener">Ver no Google Maps</a></p>
-            <p><a class="link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Cardoso+de+Morais%2C+145+-+Bonsucesso%2C+Rio+de+Janeiro+-+RJ%2C+21032-025" target="_blank" rel="noopener">Como chegar</a></p>
-          </noscript>
+        <!-- O mapa carrega junto com a pagina, por decisao do cliente. O loading="lazy" segura a requisicao ate a secao chegar perto da tela. -->
+        <div class="mapa-quadro">
+          <iframe
+            src="https://www.google.com/maps?q=Ceres+Solucoes+em+Tecnologia+Rua+Cardoso+de+Morais+145+Bonsucesso+Rio+de+Janeiro&amp;z=17&amp;hl=pt-BR&amp;output=embed"
+            title="Mapa com a localização da Ceres, na Rua Cardoso de Morais, 145, sala 411, Bonsucesso"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
       <div class="onde-card">
@@ -490,15 +487,17 @@
 <footer class="rodape">
   <div class="rodape-grade">
     <div>
-      <span class="marca-nome">ceres</span>
-      <span class="marca-sub">soluções em tecnologia</span>
+      <a class="marca" href="#conteudo" aria-label="Ceres, soluções em tecnologia. Voltar ao topo">
+        <img class="marca-logo marca-logo-rodape" src="assets/logo-ceres.png" width="433" height="158"
+             alt="Ceres, soluções em tecnologia" loading="lazy" decoding="async">
+      </a>
     </div>
     <div>
       <a class="link link-toque" href="https://www.instagram.com/cerestec/" target="_blank" rel="noopener">Instagram @cerestec <span class="sr">abre em outra aba</span></a>
       <p><a class="link link-toque" href="tel:+5521991437505">(21) 99143-7505</a> · <a class="link link-toque" href="https://wa.me/5521991437505" data-whatsapp>WhatsApp</a></p>
     </div>
   </div>
-  <p class="credito">Site feito pela SoftWave Soluções.</p>
+  <p class="credito">Desenvolvido pela <a href="https://www.softwavesolucoes.com.br/" target="_blank" rel="noopener">SoftWave Soluções<span class="sr">, abre em outra aba</span></a>.</p>
 </footer>
 
 <a class="flutuante" href="https://wa.me/5521991437505" aria-label="Chamar a Ceres no WhatsApp" data-whatsapp>
@@ -538,20 +537,6 @@ document.querySelectorAll(".video-facade").forEach((botao) => {
     video.focus();
     video.play().catch(() => {});
   });
-});
-
-const mapa = document.querySelector("[data-mapa]");
-const botaoMapa = mapa?.querySelector(".botao-mapa");
-botaoMapa?.addEventListener("click", () => {
-  const frame = document.createElement("iframe");
-  frame.src = "https://www.google.com/maps?q=Ceres+Solucoes+em+Tecnologia+Rua+Cardoso+de+Morais+145+Bonsucesso+Rio+de+Janeiro&z=17&hl=pt-BR&output=embed";
-  frame.loading = "lazy";
-  frame.title = "Mapa com a localização da Ceres";
-  frame.referrerPolicy = "no-referrer-when-downgrade";
-  frame.width = "100%";
-  frame.height = "100%";
-  frame.style.border = "0";
-  mapa.replaceChildren(frame);
 });
 </script>
 </body>

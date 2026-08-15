@@ -14,7 +14,9 @@ Site de página única da Ceres. Publicado na Vercel, projeto `ceres-tecnologia`
 - Nos breakpoints a fileira nunca cai para duas colunas, senão o terceiro vídeo ficaria sozinho na segunda linha. Até 920px os três encolhem juntos; abaixo de 640px empilham em coluna única a 270px.
 - A linha de apoio da seção diz "gravado dentro da Ceres", e não "na bancada", porque o vídeo da sala não é de bancada.
 - O botão de play fica no canto inferior esquerdo, não no centro. Centralizado ele caía em cima do assunto de todo quadro: as mãos na bancada num vídeo, o texto da placa que o Bruno segura no outro.
-- Mapa e vídeo são opt-in: nada de terceiro e nenhum `.mp4` carrega antes de um clique. O hero carrega só o poster do vídeo, não o vídeo.
+- Vídeo é opt-in: nenhum `.mp4` carrega antes de um clique. O hero carrega só o poster, não o vídeo.
+- O mapa **não** é mais opt-in. Por decisão do cliente ele vem carregado, sem clique. Isso significa que o Google recebe uma requisição de todo visitante que rolar até "Onde estamos". O `loading="lazy"` segura a requisição até a seção chegar perto da tela, então não pesa no primeiro carregamento.
+- O `frame-src` do CSP libera só `https://www.google.com`. O embed responde com um redirect, mas o destino continua no mesmo host (`/maps/embed`), então a política cobre. Se o endereço do embed mudar de host, o mapa quebra e é preciso ajustar o `vercel.json`.
 - As fotos da galeria foram recortadas para 3:4 no arquivo-fonte. Antes eram proporções misturadas forçadas no mesmo slot por `object-fit: cover`, e o corte caía em lugar errado.
 - O WhatsApp está ativo. O único ponto de edição para trocar o número fica no fim do `index.html`, na constante `WHATSAPP`.
 - Cada cartão de serviço abre o WhatsApp com uma mensagem própria, usando `data-msg`.

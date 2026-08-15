@@ -114,29 +114,13 @@ a:focus-visible, button:focus-visible {
 .marca-logo {
   display: block;
   width: auto;
-  height: 44px;
+  height: 52px;
 }
+.marca-logo-rodape { height: 46px; }
 
 @media (max-width: 640px) {
-  .marca-logo { height: 38px; }
-}
-
-.marca-nome {
-  display: block;
-  color: var(--texto);
-  font-size: 30px;
-  font-weight: 850;
-  letter-spacing: 0;
-  line-height: 1;
-}
-
-.marca-sub {
-  display: block;
-  color: var(--texto-2);
-  font-size: 11px;
-  letter-spacing: 0;
-  text-transform: lowercase;
-  margin-top: 3px;
+  .marca-logo { height: 42px; }
+  .marca-logo-rodape { height: 40px; }
 }
 
 .topo nav {
@@ -217,8 +201,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .botao,
-.botao-secundario,
-.botao-mapa {
+.botao-secundario {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -242,14 +225,12 @@ a:focus-visible, button:focus-visible {
 }
 .botao .ico, .flutuante .ico { width: 22px; height: 22px; fill: currentColor; }
 
-.botao-secundario,
-.botao-mapa {
+.botao-secundario {
   background: transparent;
   color: var(--texto);
   border: 1px solid rgba(255,255,255,.14);
 }
-.botao-secundario:hover,
-.botao-mapa:hover {
+.botao-secundario:hover {
   color: var(--amarelo);
   border-color: var(--amarelo);
 }
@@ -537,25 +518,20 @@ address {
   gap: 10px;
   margin: 18px 0;
 }
-.mapa-facade {
+/* O mapa vem carregado, sem clique. O overflow hidden e necessario porque o
+   iframe do Google nao respeita o border-radius do pai sozinho. */
+.mapa-quadro {
   aspect-ratio: 16 / 10;
   background: var(--superficie-2);
   border: 1px solid var(--linha);
   border-radius: var(--raio);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 22px;
-  color: var(--texto-2);
+  overflow: hidden;
 }
-.mapa-facade svg {
-  width: 34px;
-  height: 34px;
-  color: var(--amarelo);
-}
-.mapa-facade iframe {
+.mapa-quadro iframe {
+  display: block;
   width: 100%;
   height: 100%;
+  border: 0;
 }
 
 .avaliacoes-resumo {
@@ -713,6 +689,16 @@ blockquote p {
   color: var(--texto-2);
   font-size: 14px;
 }
+/* Sem esta regra o link nasce no azul padrao do navegador, que sobre o
+   grafite fica ilegivel. Discreto no repouso, porque e credito e nao CTA. */
+.credito a {
+  color: var(--texto-2);
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.credito a:hover,
+.credito a:focus-visible { color: var(--amarelo); }
 
 .flutuante {
   position: fixed;
@@ -730,6 +716,29 @@ blockquote p {
   border-radius: 999px;
   text-decoration: none;
   box-shadow: 0 10px 28px rgba(0,0,0,.35);
+}
+
+/* Pulso do botao flutuante. O anel e um ::before atras do botao, e nao um
+   box-shadow animado, porque animar box-shadow repinta a cada quadro; assim
+   so transform e opacity mudam, que a GPU resolve sozinha.
+   Fica em pausa no hover e no foco, para nao piscar debaixo do cursor.
+   O bloco de prefers-reduced-motion la em cima ja desliga a animacao. */
+.flutuante::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--amarelo);
+  z-index: -1;
+  animation: pulso-whatsapp 2.4s cubic-bezier(.22, .61, .36, 1) infinite;
+}
+.flutuante:hover::before,
+.flutuante:focus-visible::before { animation-play-state: paused; }
+
+@keyframes pulso-whatsapp {
+  0%   { transform: scale(1);    opacity: .55; }
+  70%  { transform: scale(1.28); opacity: 0; }
+  100% { transform: scale(1.28); opacity: 0; }
 }
 
 @media (max-width: 920px) {
@@ -781,8 +790,7 @@ blockquote p {
     flex-direction: column;
   }
   .botao,
-  .botao-secundario,
-  .botao-mapa {
+  .botao-secundario {
     width: 100%;
   }
   .videos-grade {
@@ -795,7 +803,7 @@ blockquote p {
     width: min(100%, 270px);
     max-width: none;
   }
-  .mapa-facade { aspect-ratio: 4 / 3; }
+  .mapa-quadro { aspect-ratio: 4 / 3; }
   .avaliacoes-grade { grid-template-columns: minmax(0, 1fr); }
   .flutuante {
     right: 12px;
