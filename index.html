@@ -3,135 +3,231 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- PREVIEW: enquanto faltar dado real da Ceres, a página não deve ser indexada. -->
+<!-- PREVIEW: enquanto faltar aprovacao final do Bruno e dominio proprio, a pagina nao deve ser indexada. -->
 <meta name="robots" content="noindex, nofollow">
-<title>Ceres · Soluções em Tecnologia</title>
-<meta name="description" content="Assistência técnica para computadores, notebooks e celulares. Manutenção, montagem e suporte técnico.">
+<title>Ceres · Assistência técnica de computador, notebook, celular e impressora em Bonsucesso, Rio de Janeiro</title>
+<meta name="description" content="Manutenção de computador, notebook, celular e impressora em Bonsucesso, Rio de Janeiro. 5,0 no Google com 229 avaliações.">
+<meta name="theme-color" content="#0d0d0d">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ceres · Assistência técnica em Bonsucesso">
+<meta property="og:description" content="Manutenção de computador, notebook, celular e impressora em Bonsucesso, Rio de Janeiro. 5,0 no Google com 229 avaliações.">
+<meta property="og:url" content="https://nauajorge.github.io/site-ceres/">
+<meta property="og:image" content="https://nauajorge.github.io/site-ceres/assets/og-ceres.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<!--
+  Schema.org local: falta so areaServed, ainda a confirmar.
+  geo saiu porque a coordenada disponivel nao e confiavel; aggregateRating e review ficam fora porque avaliacao self-serving de LocalBusiness/Organization nao e elegivel a rich result.
+  NAP precisa sair identico aqui, no perfil do Google e no Instagram; divergencia derruba a confianca do sinal local.
+  url e image trocam para o dominio proprio na publicacao final.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Ceres Soluções em Tecnologia",
+  "alternateName": ["Ceres", "Ceres Soluções em Tecnologia - Suporte Técnico em Informática"],
+  "description": "Assistência técnica para computador, notebook, celular e impressora. Manutenção, montagem e suporte técnico.",
+  "url": "https://nauajorge.github.io/site-ceres/",
+  "image": "https://nauajorge.github.io/site-ceres/assets/og-ceres.jpg",
+  "telephone": "+5521991437505",
+  "sameAs": [
+    "https://www.instagram.com/cerestec/",
+    "https://maps.google.com/?cid=13197305598002025175"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Cardoso de Morais, 145 - Sl 411 - Bonsucesso",
+    "addressLocality": "Rio de Janeiro",
+    "addressRegion": "RJ",
+    "postalCode": "21032-025",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  }],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Serviços",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manutenção de notebook" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Celular Android" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "iPhone" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Manutenção de computador" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Conserto de impressora" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Montagem de computador" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Suporte técnico" } }
+    ]
+  }
+}
+</script>
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230d0d0d'/><text y='72' x='50' font-size='68' font-family='sans-serif' font-weight='700' fill='%23ffd400' text-anchor='middle'>c</text></svg>">
 </head>
 <body>
 
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-<div class="aviso-preview" role="status">
-  <strong>Versão de revisão.</strong> Alguns dados de contato ainda precisam ser confirmados pela Ceres.
+<div class="aviso-preview" role="note">
+  <strong>Versão de revisão.</strong> Falta só o Bruno confirmar o número e a sala do endereço antes da publicação em domínio próprio.
 </div>
 
 <header class="topo">
   <div class="faixa">
     <a class="marca" href="#conteudo" aria-label="Ceres, soluções em tecnologia">
-      <span class="marca-nome">ceres</span>
-      <span class="marca-sub">soluções em tecnologia</span>
+      <img class="marca-logo" src="assets/logo-ceres.png" width="433" height="158"
+           alt="Ceres, soluções em tecnologia" decoding="async">
     </a>
     <nav aria-label="Seções">
       <a href="#servicos">Serviços</a>
-      <a href="#bancada">Diagnóstico</a>
       <a href="#como-funciona">Como funciona</a>
+      <a href="#onde">Onde estamos</a>
       <a href="#sobre">Sobre</a>
     </nav>
   </div>
 </header>
 
 <main id="conteudo">
-
-  <!-- 1. TOPO -->
   <section class="hero">
     <div class="hero-texto">
-      <span class="hero-rotulo">Assistência técnica local</span>
-      <h1>Assistência técnica para computador, notebook e celular.</h1>
-      <p class="linha-apoio">
-        Quebrou, travou, ficou lento ou nem liga? A gente olha, explica o que houve em
-        português claro e só mexe depois que você souber o que vai ser feito.
-      </p>
+      <h1>Assistência técnica para computador, notebook, celular e impressora.</h1>
+      <a class="hero-local" href="#onde">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.4 7-12a7 7 0 1 0-14 0c0 6.6 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.4" fill="currentColor"/></svg>
+        Bonsucesso · Rio de Janeiro/RJ
+      </a>
+      <p class="linha-apoio">Quebrou, travou, ficou lento ou nem liga? Chame no WhatsApp e conte o que está acontecendo, com as suas palavras.</p>
+      <a class="nota-google nota-google-hero" href="https://maps.google.com/?cid=13197305598002025175" target="_blank" rel="noopener">
+        <span class="estrelas estrelas-preenchidas" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+        </span>
+        <span><strong>5,0</strong> no Google · 229 avaliações</span>
+        <span class="sr">Nota 5 de 5 no Google, com 229 avaliações. Abre em outra aba.</span>
+      </a>
       <div class="acoes-hero">
-        <a class="botao botao-principal botao-desativado" href="#onde" aria-describedby="pend-whatsapp">
+        <a class="botao botao-principal" href="https://wa.me/5521991437505" data-whatsapp>
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z"/></svg>
           Chamar no WhatsApp
         </a>
         <a class="botao-secundario" href="#servicos">Ver serviços</a>
       </div>
-      <p class="nota-botao" id="pend-whatsapp">Botão desativado nesta versão de revisão.</p>
       <ul class="hero-chips" aria-label="Tipos de atendimento">
-        <li>Computador</li>
         <li>Notebook</li>
-        <li>Android</li>
-        <li>iPhone</li>
+        <li>Celular</li>
+        <li>Computador</li>
+        <li>Impressora</li>
       </ul>
     </div>
     <figure class="hero-foto">
-      <img src="assets/placa-iphone.jpeg" alt="Técnico da Ceres segurando a placa de um iPhone com luva, sobre a bancada de reparo." width="900" height="1600" loading="eager">
-      <figcaption>Reparo em placa de iPhone.</figcaption>
+      <img src="assets/placa-iphone.jpeg" alt="Mão com luva segurando a placa de um iPhone sobre tapete azul de bancada." width="720" height="1280" loading="eager" fetchpriority="high" decoding="async">
+      <figcaption>Placa de iPhone na bancada.</figcaption>
     </figure>
   </section>
 
-  <!-- 2. SERVIÇOS -->
   <section id="servicos" class="secao">
-    <span class="rotulo-secao">Serviços</span>
-    <h2>O que a Ceres resolve</h2>
+    <h2>O que a Ceres faz</h2>
     <p class="secao-apoio">Uma lista direta para a pessoa descobrir rápido se o problema dela entra no atendimento.</p>
-
     <ul class="cartoes">
-      <li class="cartao">
-        <svg class="ico-cartao" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v11H3z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2 19h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        <h3>Manutenção de computador</h3>
-        <p>Computador lento, desligando sozinho, fazendo barulho ou que não liga mais.</p>
-      </li>
       <li class="cartao">
         <svg class="ico-cartao" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H4z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2 20h20M9 8h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <h3>Manutenção de notebook</h3>
-        <p>Bateria que não segura carga, tela, teclado, superaquecimento e travamento.</p>
+        <p>Bateria, tela, teclado, superaquecimento, travamento, limpeza e aparelho que não liga.</p>
+        <a class="link-servico" href="https://wa.me/5521991437505" data-whatsapp data-msg="Olá! Vim pelo site da Ceres e preciso de ajuda com meu notebook." aria-label="Chamar no WhatsApp sobre manutenção de notebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z"/></svg>
+          Chamar sobre isso
+        </a>
       </li>
       <li class="cartao">
         <svg class="ico-cartao" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <h3>Celular Android</h3>
-        <p>Defeito, travamento, aparelho que não carrega ou que precisa de avaliação.</p>
+        <p>Manutenção de celular Android com defeito, travamento ou problema de carga.</p>
+        <a class="link-servico" href="https://wa.me/5521991437505" data-whatsapp data-msg="Olá! Vim pelo site da Ceres e preciso de ajuda com meu celular Android." aria-label="Chamar no WhatsApp sobre celular Android">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z"/></svg>
+          Chamar sobre isso
+        </a>
       </li>
       <li class="cartao">
         <svg class="ico-cartao" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 4.5h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <h3>iPhone</h3>
-        <p>Avaliação e reparo de iPhone, incluindo serviço em placa.</p>
+        <p>Manutenção de iPhone, incluindo reparo em placa.</p>
+        <a class="link-servico" href="https://wa.me/5521991437505" data-whatsapp data-msg="Olá! Vim pelo site da Ceres e preciso de ajuda com meu iPhone." aria-label="Chamar no WhatsApp sobre iPhone">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z"/></svg>
+          Chamar sobre isso
+        </a>
+      </li>
+      <li class="cartao">
+        <svg class="ico-cartao" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v11H3z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2 19h20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <h3>Manutenção de computador</h3>
+        <p>Computador lento, desligando sozinho, fazendo barulho ou que não liga.</p>
+        <a class="link-servico" href="https://wa.me/5521991437505" data-whatsapp data-msg="Olá! Vim pelo site da Ceres e preciso de ajuda com meu computador." aria-label="Chamar no WhatsApp sobre manutenção de computador">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z"/></svg>
+          Chamar sobre isso
+        </a>
+      </li>
+      <li class="cartao">
+        <svg class="ico-cartao" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8V4h10v4M7 17H5a2 2 0 0 1-2-2v-5h18v5a2 2 0 0 1-2 2h-2M7 14h10v7H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M17 12h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <h3>Conserto de impressora</h3>
+        <p>Impressora que não imprime, não é reconhecida ou parou de funcionar.</p>
+        <a class="link-servico" href="https://wa.me/5521991437505" data-whatsapp data-msg="Olá! Vim pelo site da Ceres e preciso de ajuda com minha impressora." aria-label="Chamar no WhatsApp sobre conserto de impressora">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z"/></svg>
+          Chamar sobre isso
+        </a>
       </li>
       <li class="cartao">
         <svg class="ico-cartao" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="8" r="1.6" fill="currentColor"/><path d="M8 13h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         <h3>Montagem de computador</h3>
-        <p>Monta a máquina certa para o que você faz, seja trabalho, estudo ou jogo.</p>
+        <p>Montagem de computador para trabalho, estudo ou jogo.</p>
+        <a class="link-servico" href="https://wa.me/5521991437505" data-whatsapp data-msg="Olá! Vim pelo site da Ceres e queria montar um computador." aria-label="Chamar no WhatsApp sobre montagem de computador">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z"/></svg>
+          Chamar sobre isso
+        </a>
       </li>
       <li class="cartao">
         <svg class="ico-cartao" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
         <h3>Suporte técnico</h3>
-        <p>Ajuda com configuração, programa que não abre e problema que ninguém resolveu.</p>
+        <p>Ajuda com configuração, programa que não abre e aquele problema que você não sabe explicar. Dúvida também é atendimento.</p>
+        <a class="link-servico" href="https://wa.me/5521991437505" data-whatsapp data-msg="Olá! Vim pelo site da Ceres e queria tirar uma dúvida." aria-label="Chamar no WhatsApp sobre suporte técnico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z"/></svg>
+          Chamar sobre isso
+        </a>
       </li>
     </ul>
   </section>
 
-  <!-- 3. BANCADA -->
-  <section id="bancada" class="secao secao-video">
-    <div class="prova-grade">
-      <div class="prova-texto">
-        <span class="rotulo">Diagnóstico</span>
-        <h2>Diagnóstico antes de indicar o próximo passo</h2>
-        <p class="secao-apoio">Um registro curto do cuidado com o aparelho aberto. A ideia é simples: entender o problema antes de falar em peça, troca ou conserto.</p>
-        <ul class="prova-lista">
-          <li>Atendimento em linguagem simples</li>
-          <li>Avaliação antes de orientar o serviço</li>
-          <li>Manutenção de computador, notebook e celular</li>
-        </ul>
-      </div>
-
-      <figure class="prova-video">
-        <video controls preload="metadata" playsinline poster="assets/placa-iphone.jpeg">
-          <source src="assets/diagnostico-bancada.mp4" type="video/mp4">
-          Seu navegador não conseguiu carregar este vídeo.
-        </video>
-        <figcaption>Toque para ver um diagnóstico real na bancada.</figcaption>
+  <section id="trabalho" class="secao secao-alt">
+    <h2>Serviço sendo feito</h2>
+    <p class="secao-apoio">Gravado na própria bancada da Ceres. Sem imagem de banco de imagens.</p>
+    <div class="videos-grade">
+      <figure class="video-card">
+        <button class="video-facade" type="button" data-video-src="assets/montagem-computador.mp4" data-video-poster="assets/poster-montagem.jpg" data-video-label="Assistir: montagem de computador, 43 segundos" aria-label="Assistir: montagem de computador, 43 segundos">
+          <img src="assets/poster-montagem.jpg" alt="" width="576" height="1024" loading="lazy" decoding="async">
+          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+        <noscript><video controls preload="none" playsinline poster="assets/poster-montagem.jpg"><source src="assets/montagem-computador.mp4" type="video/mp4">Seu navegador não conseguiu carregar este vídeo.</video></noscript>
+        <figcaption>Montagem de computador: instalação da placa-mãe e do gabinete, na bancada da Ceres.</figcaption>
+      </figure>
+      <figure class="video-card">
+        <button class="video-facade" type="button" data-video-src="assets/computador-pronto.mp4" data-video-poster="assets/poster-computador-pronto.jpg" data-video-label="Assistir: computador montado e ligado, 11 segundos" aria-label="Assistir: computador montado e ligado, 11 segundos">
+          <img src="assets/poster-computador-pronto.jpg" alt="" width="352" height="624" loading="lazy" decoding="async">
+          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+        <noscript><video controls preload="none" playsinline poster="assets/poster-computador-pronto.jpg"><source src="assets/computador-pronto.mp4" type="video/mp4">Seu navegador não conseguiu carregar este vídeo.</video></noscript>
+        <figcaption>O mesmo tipo de serviço terminado: computador montado e ligado.</figcaption>
       </figure>
     </div>
   </section>
 
-  <!-- 4. COMO FUNCIONA -->
-  <section id="como-funciona" class="secao secao-alt">
-    <span class="rotulo-secao">Como funciona</span>
+  <section id="como-funciona" class="secao">
     <h2>Como funciona</h2>
     <ol class="passos">
       <li>
@@ -141,86 +237,139 @@
       </li>
       <li>
         <span class="num">2</span>
-        <h3>A gente entende o caso</h3>
-        <p>Fazemos algumas perguntas simples sobre o aparelho e o defeito, e indicamos o próximo passo pelo próprio WhatsApp.</p>
-        <p class="pendencia pendencia-discreta" data-pendencia="2">
-          Confirmar com o Bruno se atende presencial, remoto ou os dois, e se o orçamento sai antes do conserto. Enquanto não confirmar, este passo fica neutro.
-        </p>
+        <h3>A Ceres entende o caso</h3>
+        <p>São algumas perguntas simples sobre o aparelho e o defeito. Dali sai o próximo passo: você leva o aparelho na sala da Ceres, em Bonsucesso, ou segue com atendimento a distância.</p>
       </li>
       <li>
         <span class="num">3</span>
-        <h3>Seu aparelho volta a funcionar</h3>
-        <p>Serviço feito por quem trabalha com isso todo dia, com peça de qualidade.</p>
+        <h3>Tudo na mesma conversa</h3>
+        <p>Do começo ao fim acontece no mesmo WhatsApp onde você começou. Sem formulário, sem cadastro, sem ligação.</p>
       </li>
     </ol>
   </section>
 
-  <!-- 5. ONDE E QUANDO -->
-  <section id="onde" class="secao">
-    <span class="rotulo-secao">Dados pendentes</span>
-    <h2>Informações a confirmar</h2>
-    <p class="secao-apoio">Estes dados entram assim que forem confirmados pela Ceres. Enquanto isso, a página continua como revisão.</p>
-    <div class="onde-grade onde-grade-simples">
-      <div class="onde-pendencias">
+  <section id="onde" class="secao secao-alt">
+    <h2>Onde estamos e horário</h2>
+    <div class="onde-grade">
+      <div class="onde-card">
         <h3>Endereço</h3>
-        <p class="pendencia" data-pendencia="3">Falta o endereço completo da Ceres. Sem ele, não entra mapa nem dado de local nesta página.</p>
-
+        <address>
+          Rua Cardoso de Morais, 145 — Sala 411<br>
+          Bonsucesso · Rio de Janeiro/RJ<br>
+          CEP 21032-025
+        </address>
+        <p class="pendencia pendencia-discreta" data-pendencia="endereco-numero-sala">O número e a sala precisam do ok do Bruno antes da publicação em domínio próprio.</p>
+        <div class="links-mapa">
+          <a class="botao-secundario" href="https://maps.google.com/?cid=13197305598002025175" target="_blank" rel="noopener">Ver no Google Maps <span class="sr">abre em outra aba</span></a>
+          <a class="botao-secundario" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Cardoso+de+Morais%2C+145+-+Bonsucesso%2C+Rio+de+Janeiro+-+RJ%2C+21032-025" target="_blank" rel="noopener">Como chegar <span class="sr">abre no Google Maps em outra aba</span></a>
+        </div>
+        <div class="mapa-facade" data-mapa>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-5.4 7-12a7 7 0 1 0-14 0c0 6.6 7 12 7 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.4" fill="currentColor"/></svg>
+          <p>Rua Cardoso de Morais, 145 — Sala 411</p>
+          <button type="button" class="botao-mapa">Abrir o mapa aqui na página</button>
+          <noscript>
+            <style>.botao-mapa{display:none}</style>
+            <p><a class="link" href="https://maps.google.com/?cid=13197305598002025175" target="_blank" rel="noopener">Ver no Google Maps</a></p>
+            <p><a class="link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua+Cardoso+de+Morais%2C+145+-+Bonsucesso%2C+Rio+de+Janeiro+-+RJ%2C+21032-025" target="_blank" rel="noopener">Como chegar</a></p>
+          </noscript>
+        </div>
+      </div>
+      <div class="onde-card">
         <h3>Horário</h3>
-        <p class="pendencia" data-pendencia="4">Falta o horário de funcionamento, incluindo sábado.</p>
-
-        <h3>Contato</h3>
-        <p class="pendencia" data-pendencia="5">Falta o número de WhatsApp e o telefone que devem aparecer no site.</p>
-
+        <p>Segunda a sexta, das 9h às 18h<br>Sábado e domingo: fechado</p>
+        <p class="texto-secundario">Mensagem enviada fora desse horário pode ser respondida só no próximo dia útil.</p>
+        <h3>Telefone e WhatsApp</h3>
+        <p><a class="link link-toque" href="tel:+5521991437505">(21) 99143-7505</a></p>
+        <p><a class="link link-toque" href="https://wa.me/5521991437505" data-whatsapp>Chamar no WhatsApp</a></p>
+        <h3>Atendimento no local</h3>
+        <p>A Ceres recebe o aparelho na sala e também atende a distância.</p>
         <h3>Instagram</h3>
-        <p><a class="link" href="https://instagram.com/cerestec" rel="noopener">@cerestec</a></p>
+        <p><a class="link link-toque" href="https://www.instagram.com/cerestec/" target="_blank" rel="noopener">@cerestec <span class="sr">abre em outra aba</span></a></p>
       </div>
     </div>
   </section>
 
-  <!-- 6. AVALIAÇÕES -->
-  <section id="avaliacoes" class="secao secao-alt">
-    <h2>Quem já foi atendido</h2>
-    <p class="pendencia pendencia-bloco" data-pendencia="6">
-      <strong>Espaço reservado para as avaliações reais do Google.</strong>
-      As avaliações da Ceres são boas e verdadeiras, e é exatamente por isso que nada vai ser
-      escrito aqui por conta própria. Assim que o Bruno mandar o texto das avaliações, o nome de
-      quem escreveu, a nota e o link do perfil, elas entram aqui como estão publicadas, com botão
-      para qualquer pessoa conferir no Google.
-    </p>
+  <section id="avaliacoes" class="secao">
+    <h2>O que dizem no Google</h2>
+    <div class="avaliacoes-resumo" aria-label="Resumo das avaliações no Google">
+      <strong>5,0</strong>
+      <div>
+        <div class="estrelas estrelas-preenchidas" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+        </div>
+        <p>229 avaliações no Google</p>
+      </div>
+    </div>
+    <!-- Novas avaliacoes entram como novos cartoes, em HTML estatico, com nome, nota, data e texto como estao publicados. Nada de widget do Google. -->
+    <article class="avaliacao-card" aria-label="Avaliação de Clara Molter Bertolot no Google">
+      <div class="avaliacao-topo">
+        <div>
+          <cite>Clara Molter Bertolot</cite>
+          <p>9 avaliações · 1 foto</p>
+        </div>
+        <div class="estrelas estrelas-preenchidas" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="m12 3 2.7 5.5 6 .9-4.4 4.2 1 6-5.3-2.8-5.3 2.8 1-6-4.4-4.2 6-.9z"/></svg>
+        </div>
+        <span class="sr">Nota 5 de 5</span>
+      </div>
+      <blockquote>
+        <p>Estava com um problema na minha impressora há quase um ano e ninguém resolvia… foi quando eu conheci a empresa por meio de indicação e resolvi tentar. Resultado: o Bruno e a equipe foram rápidos, simpáticos e resolveram o meu problema. Indico o serviço dele</p>
+      </blockquote>
+      <p class="avaliacao-data">há 2 meses</p>
+    </article>
+    <a class="botao-secundario botao-contorno" href="https://maps.google.com/?cid=13197305598002025175" target="_blank" rel="noopener">Ver avaliações no Google <span class="sr">abre em outra aba</span></a>
   </section>
 
-  <!-- 7. SOBRE -->
-  <section id="sobre" class="secao">
+  <section id="sobre" class="secao secao-alt">
     <h2>Sobre a Ceres</h2>
     <div class="sobre-grade">
-      <div>
-        <p>
-          A Ceres é uma assistência técnica que trabalha com computador, notebook e celular. O
-          serviço vai do básico, como limpeza e troca de peça, até reparo em placa, que é a parte
-          que a maioria não faz.
-        </p>
-        <p>
-          O atendimento é por WhatsApp, e a ideia é simples: você explica o problema do seu jeito,
-          e a gente traduz para o que precisa ser feito.
-        </p>
+      <div class="sobre-texto">
+        <p>A Ceres trabalha com computador, notebook, celular e impressora. O serviço vai da limpeza e da troca de peça ao reparo em placa.</p>
+        <p>O atendimento é pelo WhatsApp. Você explica o problema do seu jeito, e a Ceres traduz para o que precisa ser feito.</p>
+        <figure class="video-card video-sobre">
+          <button class="video-facade" type="button" data-video-src="assets/video-ceres-instagram.mp4" data-video-poster="assets/poster-video-ceres.jpg" data-video-label="Assistir ao vídeo da Ceres no Instagram, 26 segundos" aria-label="Assistir ao vídeo da Ceres no Instagram, 26 segundos">
+            <img src="assets/poster-video-ceres.jpg" alt="" width="576" height="1024" loading="lazy" decoding="async">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <noscript><video controls preload="none" playsinline poster="assets/poster-video-ceres.jpg"><source src="assets/video-ceres-instagram.mp4" type="video/mp4">Seu navegador não conseguiu carregar este vídeo.</video></noscript>
+          <figcaption>Vídeo publicado pela Ceres no Instagram. É o Bruno, dono da Ceres.</figcaption>
+        </figure>
       </div>
       <div class="galeria">
         <figure>
-          <img src="assets/macbook.jpeg" alt="Notebook Apple aberto na bancada, com bateria nova ainda na embalagem ao lado." width="960" height="1280" loading="lazy">
-          <figcaption>Troca de bateria em MacBook.</figcaption>
+          <img src="assets/macbook.jpeg" alt="Notebook Apple aberto na bancada, com bateria nova na embalagem ao lado." width="720" height="960" loading="lazy" decoding="async">
+          <figcaption>Notebook Apple na bancada.</figcaption>
         </figure>
         <figure>
-          <img src="assets/placa-de-video.jpeg" alt="Placa de vídeo desmontada, com a placa separada do dissipador." width="960" height="1280" loading="lazy">
-          <figcaption>Placa de vídeo aberta para manutenção.</figcaption>
+          <img src="assets/placa-de-video.jpeg" alt="Placa de vídeo desmontada, separada do dissipador." width="720" height="960" loading="lazy" decoding="async">
+          <figcaption>Placa de vídeo desmontada.</figcaption>
         </figure>
         <figure>
-          <img src="assets/montagem-pc.jpeg" alt="Gabinete de computador montado, com iluminação colorida acesa na parte frontal." width="720" height="1280" loading="lazy">
-          <figcaption>Computador montado na Ceres.</figcaption>
+          <img src="assets/montagem-pc.jpeg" alt="Gabinete montado, com iluminação colorida acesa." width="576" height="1024" loading="lazy" decoding="async">
+          <figcaption>Computador montado.</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
+  <section class="chamada-final">
+    <div>
+      <h2>Não sabe explicar o defeito? Tudo bem.</h2>
+      <p>É só mandar mensagem contando o que está acontecendo. A Ceres cuida do resto.</p>
+      <a class="botao botao-principal" href="https://wa.me/5521991437505" data-whatsapp>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z"/></svg>
+        Chamar no WhatsApp
+      </a>
+    </div>
+  </section>
 </main>
 
 <footer class="rodape">
@@ -230,17 +379,65 @@
       <span class="marca-sub">soluções em tecnologia</span>
     </div>
     <div>
-      <a class="link" href="https://instagram.com/cerestec" rel="noopener">Instagram @cerestec</a>
-      <p class="pendencia pendencia-mini" data-pendencia="7">WhatsApp e e-mail entram aqui quando forem confirmados.</p>
+      <a class="link link-toque" href="https://www.instagram.com/cerestec/" target="_blank" rel="noopener">Instagram @cerestec <span class="sr">abre em outra aba</span></a>
+      <p><a class="link link-toque" href="tel:+5521991437505">(21) 99143-7505</a> · <a class="link link-toque" href="https://wa.me/5521991437505" data-whatsapp>WhatsApp</a></p>
     </div>
   </div>
   <p class="credito">Site feito pela SoftWave Soluções. Versão de revisão, não publicada em domínio próprio.</p>
 </footer>
 
-<a class="flutuante botao-desativado" href="#onde" aria-label="Chamar no WhatsApp, aguardando número">
+<a class="flutuante" href="https://wa.me/5521991437505" aria-label="Chamar a Ceres no WhatsApp" data-whatsapp>
   <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5c-.1.2-.3.3-.1.6.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.3.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.4z"/></svg>
   <span>WhatsApp</span>
 </a>
 
+<script>
+// ===== ÚNICO PONTO DE EDIÇÃO =====
+// Edite este numero se o WhatsApp oficial da Ceres mudar.
+const WHATSAPP = "5521991437505";
+const MENSAGEM = "Olá! Vim pelo site da Ceres e preciso de ajuda.";
+
+const botoesWhatsapp = document.querySelectorAll("[data-whatsapp]");
+
+botoesWhatsapp.forEach((botao) => {
+  const mensagem = botao.dataset.msg || MENSAGEM;
+  botao.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+});
+
+document.querySelectorAll(".video-facade").forEach((botao) => {
+  botao.addEventListener("click", () => {
+    const video = document.createElement("video");
+    video.controls = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.preload = "auto";
+    video.poster = botao.dataset.videoPoster;
+    video.setAttribute("aria-label", botao.dataset.videoLabel);
+
+    const source = document.createElement("source");
+    source.src = botao.dataset.videoSrc;
+    source.type = "video/mp4";
+    video.appendChild(source);
+
+    botao.replaceWith(video);
+    video.focus();
+    video.play().catch(() => {});
+  });
+});
+
+const mapa = document.querySelector("[data-mapa]");
+const botaoMapa = mapa?.querySelector(".botao-mapa");
+botaoMapa?.addEventListener("click", () => {
+  const frame = document.createElement("iframe");
+  frame.src = "https://www.google.com/maps?q=Ceres+Solucoes+em+Tecnologia+Rua+Cardoso+de+Morais+145+Bonsucesso+Rio+de+Janeiro&z=17&hl=pt-BR&output=embed";
+  frame.loading = "lazy";
+  frame.title = "Mapa com a localização da Ceres";
+  frame.referrerPolicy = "no-referrer-when-downgrade";
+  frame.width = "100%";
+  frame.height = "100%";
+  frame.style.border = "0";
+  mapa.replaceChildren(frame);
+});
+</script>
 </body>
 </html>

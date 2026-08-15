@@ -1,67 +1,54 @@
 # Site da Ceres · soluções em tecnologia
 
-Site institucional de página única da **Ceres**, assistência técnica de computadores, notebooks e
-celulares. Feito pela [SoftWave Soluções](https://instagram.com/softwavesolucoes).
+Site de página única da Ceres, feito para revisão do Bruno antes de qualquer publicação em domínio próprio.
 
-> **Esta é uma versão de revisão.** Foi publicada para o Bruno, dono da Ceres, ver a estrutura e o
-> visual antes de qualquer coisa ir ao ar em domínio próprio. Os blocos marcados em amarelo na
-> página ainda esperam informação da Ceres, e a página está com `noindex` para não aparecer em
-> busca enquanto estiver incompleta.
+> Esta é uma versão de revisão. O site continua com `noindex`, e o `Disallow: /` do `robots.txt` deve sair junto com o `noindex` somente depois da aprovação do Bruno e da mudança para o domínio próprio. Só então o schema.org passa a valer para busca.
 
-## Contexto
+## Decisões
 
-A Ceres perdeu o domínio que estava na Wix e ficou sem site. O Instagram
-[@cerestec](https://instagram.com/cerestec) continua ativo e os vídeos mandam a pessoa para o
-"link da bio", que hoje não tem destino próprio. Este site existe para ser esse destino.
+- Tema preto dominante porque a marca da Ceres, no cartão final do vídeo do próprio cliente, é branca sobre preto.
+- `@cerestec` não foi suposto: aparece como marca d'água nos vídeos que o Bruno enviou.
+- O vídeo do Instagram é vídeo institucional do Bruno, não filmagem de conserto. A legenda anterior descrevia algo que o vídeo não mostrava.
+- Os outros dois vídeos são montagem de computador e computador montado. A legenda de cada um diz o serviço mostrado.
+- Mapa e vídeo são opt-in: nada de terceiro e nenhum `.mp4` carrega antes de um clique.
+- O WhatsApp está ativo. O único ponto de edição para trocar o número fica no fim do `index.html`, na constante `WHATSAPP`.
+- Cada cartão de serviço abre o WhatsApp com uma mensagem própria, usando `data-msg`.
+- A nota 5,0 com 229 avaliações aparece em destaque na página para conversão. `aggregateRating` não é emitido porque avaliação da própria empresa no site da própria empresa é self-serving e não é elegível a rich result para `LocalBusiness`/`Organization`.
 
-## Decisões de projeto
+## Dados locais
 
-- **Objetivo único:** levar a pessoa ao WhatsApp. Sem carrinho, sem login, sem formulário longo.
-- **Público:** boa parte dos clientes tem pouca familiaridade com tecnologia. Por isso a linguagem
-  é simples, o botão é grande e não há jargão técnico em lugar nenhum.
-- **Preto e amarelo:** identidade que a Ceres já usa no Instagram. Preto domina, amarelo é ação e
-  destaque pontual. Texto sobre amarelo é sempre escuro, e o foco do teclado não depende só de cor.
-- **Sem framework e sem build.** HTML, CSS e nada mais. Abre rápido, é fácil de hospedar em
-  qualquer lugar e qualquer pessoa consegue mexer depois.
-- **Sem dependência externa.** Nenhuma fonte, ícone ou script vindo de CDN. Os ícones são SVG
-  escritos no próprio HTML. A página não quebra se um serviço de terceiro cair.
-- **Mobile primeiro.** Quem procura conserto de celular procura pelo celular.
+O endereço confirmado é Rua Cardoso de Morais, 145 - Sl 411 - Bonsucesso, Rio de Janeiro/RJ, CEP 21032-025. Antes do domínio próprio, ainda é preciso o ok do Bruno para o número e a sala.
 
-## Nada aqui é inventado
+O link do perfil no Google usa `cid`, que é canônico e permanente. Não é link de busca que expira.
 
-Regra do projeto: nenhuma informação da Ceres foi escrita por suposição.
+O `geo` foi removido porque a coordenada disponível não é confiável. O mapa passou a abrir por nome do negócio e endereço, e continua opt-in.
 
-- As fotos são reais, enviadas pelo Bruno.
-- Os serviços listados são os que a Ceres confirmou que faz.
-- **Não há avaliação escrita no site.** As avaliações da Ceres no Google são boas e verdadeiras, e
-  é justamente por isso que nenhuma foi redigida por conta própria. Elas entram com o texto real,
-  o nome de quem escreveu, a nota e o link do perfil.
-- Endereço, horário, telefone e WhatsApp aparecem como pendência até serem confirmados.
+O telefone confirmado no perfil é `(21) 99143-7505`. Antes do domínio próprio, ainda é preciso o Bruno confirmar que este telefone é o mesmo número do WhatsApp da Ceres.
 
-## O que falta para publicar de verdade
+O Google Ads bloqueia anúncio pago de assistência técnica terceirizada ao consumidor. Isso torna o orgânico e o perfil local o canal viável no Google, então o `LocalBusiness` e o NAP consistente têm peso maior neste site.
 
-| # | O que falta | Onde entra |
-|---|---|---|
-| 1 | Número de WhatsApp | Botão do topo, botão flutuante e rodapé |
-| 2 | Endereço completo | Seção "Onde estamos", mapa e dados de negócio local |
-| 3 | Horário de funcionamento | Seção "Onde estamos" |
-| 4 | Texto das avaliações do Google, com nome, nota e link do perfil | Seção "Quem já foi atendido" |
-| 5 | Confirmar se atende presencial, remoto ou os dois, e se o orçamento sai antes do conserto | Passo 2 de "Como funciona" |
-| 6 | Logo em arquivo, de preferência vetor ou PNG com fundo transparente | Topo e rodapé |
-| 7 | E-mail de contato, se quiser que apareça | Rodapé |
+O domínio não foi perdido: a empresa perdeu o site publicado na Wix, não o domínio. Não é preciso comprar domínio novo; basta apontar o DNS ou transferir.
 
-Quando esses itens chegarem, sai o `noindex`, entram os dados de negócio local para busca e o site
-pode ir para domínio próprio.
+## O que falta
+
+| Item | Por que falta |
+|---|---|
+| Logo em arquivo | Existe cartão de marca no fim do vídeo, mas não arquivo próprio |
+
+## Confirmar antes do domínio próprio
+
+- Confirmar com o Bruno que `(21) 99143-7505` é o mesmo número do WhatsApp da Ceres.
+- Confirmar com o Bruno o número e a sala do endereço antes da publicação em domínio próprio.
 
 ## Estrutura
 
-```
+```text
 index.html      página inteira
 style.css       estilo
-assets/         fotos reais da Ceres
+assets/         fotos, posters e vídeos reais da Ceres
 robots.txt      bloqueio de indexação enquanto é rascunho
 ```
 
 ## Como abrir
 
-Baixe e abra o `index.html` no navegador. Não precisa instalar nada.
+Abra `index.html` no navegador. Não precisa instalar nada.
