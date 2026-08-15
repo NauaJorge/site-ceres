@@ -427,23 +427,29 @@ a:focus-visible, button:focus-visible {
   flex: 0 0 auto;
 }
 
-/* Os dois videos sao 9:16 e travam em 320px, entao a dupla ocupa 658px de uma
-   faixa de 1120px. Centralizar evita o vao morto de 460px a direita. */
+/* Video 9:16 cresce em altura na mesma proporcao que ganha largura: a 320px
+   cada um passava de 560px de altura, e a secao inteira batia perto de 950px.
+   A 248px o par continua legivel e a secao encolhe uns 130px. Centralizado
+   porque a dupla nao chega perto dos 1120px da faixa. */
 .videos-grade {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 320px));
-  gap: 18px;
-  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 232px));
+  gap: 16px;
   justify-content: center;
 }
 
 .video-card {
   overflow: hidden;
-  max-width: 320px;
+  max-width: 232px;
+  display: flex;
+  flex-direction: column;
 }
+/* Sem min-height fixo: os dois cartoes esticam juntos pelo grid, entao a
+   legenda mais curta nao precisa mais reservar altura que nao usa. */
 .video-card figcaption {
-  min-height: 70px;
-  padding: 0 14px 14px;
+  padding: 12px 14px 14px;
+  margin-top: 0;
+  font-size: 13px;
 }
 .video-facade,
 .video-card video,
@@ -549,20 +555,40 @@ address {
   font-size: clamp(44px, 8vw, 64px);
   line-height: .95;
 }
-.avaliacao-card { max-width: 640px; margin-bottom: 16px; }
+/* Seis avaliacoes em tres colunas: duas linhas cheias, sem cartao orfao. Os
+   textos tem tamanhos bem diferentes, entao o cartao vira coluna flex e a data
+   e empurrada para o rodape, para as linhas fecharem no mesmo lugar. */
+.avaliacoes-grade {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0 28px;
+}
+.avaliacao-card {
+  display: flex;
+  flex-direction: column;
+}
+.avaliacao-card blockquote { flex: 1 1 auto; }
 .avaliacao-topo {
   display: flex;
-  gap: 18px;
+  gap: 14px;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 18px;
+  align-items: flex-start;
+  margin-bottom: 14px;
 }
 .avaliacao-topo cite {
-  color: var(--texto-2);
+  color: var(--texto);
   display: block;
   font-style: normal;
   font-weight: 800;
+  font-size: 15px;
+  line-height: 1.25;
 }
+/* Em coluna de ~350px o corpo padrao de 17px fica pesado e a linha de meta
+   compete com o nome. */
+.avaliacao-topo p { font-size: 13px; margin-top: 3px; }
+.avaliacao-card blockquote p { font-size: 15px; line-height: 1.5; }
+.avaliacao-card .estrelas svg { width: 15px; height: 15px; }
 .estrelas {
   display: flex;
   gap: 3px;
@@ -588,15 +614,15 @@ blockquote p {
 }
 .avaliacao-data {
   color: var(--texto-2);
-  margin: 14px 0 0;
+  font-size: 14px;
+  margin: 16px 0 0;
 }
 
 /* O texto do "Sobre" sao dois paragrafos curtos. Ao lado da galeria em duas
    colunas ele deixava uns 900px de vao vazio a esquerda, entao os dois blocos
-   viraram um embaixo do outro e a galeria ocupa a largura inteira. */
-/* O max-width vai no paragrafo, nao no bloco: .secao-alt > * centraliza os
-   filhos em 1120px, entao estreitar o bloco jogaria o texto para o meio da
-   faixa, desalinhado do h2. */
+   viraram um embaixo do outro e a galeria ocupa a largura inteira.
+   O max-width vai no paragrafo, e nao no bloco: estreitar o bloco jogaria o
+   texto para o meio da faixa, desalinhado do h2. */
 .sobre-texto { margin-bottom: 30px; }
 .sobre-texto p { max-width: 62ch; }
 .sobre-texto p + p { margin-top: 14px; }
@@ -714,7 +740,8 @@ blockquote p {
   .onde-grade {
     grid-template-columns: 1fr;
   }
-  .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .galeria,
+  .avaliacoes-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 640px) {
@@ -743,10 +770,14 @@ blockquote p {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
   }
+  /* No mobile o vazio horizontal nao existe, entao o video volta a crescer.
+     max-width precisa ser anulado, senao venceria o width. */
   .video-card {
     width: min(100%, 300px);
+    max-width: none;
   }
   .mapa-facade { aspect-ratio: 4 / 3; }
+  .avaliacoes-grade { grid-template-columns: minmax(0, 1fr); }
   .flutuante {
     right: 12px;
     bottom: 12px;
