@@ -9,8 +9,10 @@ Site de página única da Ceres. Publicado na Vercel, projeto `ceres-tecnologia`
 - `@cerestec` não foi suposto: aparece como marca d'água nos vídeos que o Bruno enviou.
 - São quatro vídeos, todos do Instagram da Ceres:
   - hero: o Bruno na bancada, primeira prova social da página;
-  - "Serviço sendo feito": montagem de computador e computador montado, os dois de bancada;
-  - "Onde estamos": o Bruno na sala, mostrando a pessoa e o espaço. Fica aqui e não na faixa de bancada porque não é demonstração de serviço, e como terceira coluna não acrescenta altura, já que o cartão do endereço é alto por causa do mapa.
+  - "Serviço sendo feito": montagem de computador, computador montado e o Bruno na sala, os três com a mesma largura.
+- Os três vídeos ficam a 300px. Vídeo 9:16 ganha 1,8px de altura para cada 1px de largura, então a largura é o único controle real sobre a altura da seção. A 300px a fileira ocupa 940px dos 1120px da faixa: enche a largura sem a seção voltar aos 900px que tinha antes.
+- Nos breakpoints a fileira nunca cai para duas colunas, senão o terceiro vídeo ficaria sozinho na segunda linha. Até 920px os três encolhem juntos; abaixo de 640px empilham em coluna única a 270px.
+- A linha de apoio da seção diz "gravado dentro da Ceres", e não "na bancada", porque o vídeo da sala não é de bancada.
 - O botão de play fica no canto inferior esquerdo, não no centro. Centralizado ele caía em cima do assunto de todo quadro: as mãos na bancada num vídeo, o texto da placa que o Bruno segura no outro.
 - Mapa e vídeo são opt-in: nada de terceiro e nenhum `.mp4` carrega antes de um clique. O hero carrega só o poster do vídeo, não o vídeo.
 - As fotos da galeria foram recortadas para 3:4 no arquivo-fonte. Antes eram proporções misturadas forçadas no mesmo slot por `object-fit: cover`, e o corte caía em lugar errado.

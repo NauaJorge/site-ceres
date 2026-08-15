@@ -427,20 +427,20 @@ a:focus-visible, button:focus-visible {
   flex: 0 0 auto;
 }
 
-/* Video 9:16 cresce em altura na mesma proporcao que ganha largura: a 320px
-   cada um passava de 560px de altura, e a secao inteira batia perto de 950px.
-   A 248px o par continua legivel e a secao encolhe uns 130px. Centralizado
-   porque a dupla nao chega perto dos 1120px da faixa. */
+/* Tres videos a 300px ocupam 940px dos 1120px da faixa. Com dois videos a
+   232px sobravam 320px de vao de cada lado, que era o problema. Video 9:16
+   ganha 1,8px de altura para cada 1px de largura, entao 300px e o ponto em
+   que a faixa fica cheia sem a secao voltar aos 900px de antes. */
 .videos-grade {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 232px));
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 300px));
+  gap: 20px;
   justify-content: center;
 }
 
 .video-card {
   overflow: hidden;
-  max-width: 232px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
 }
@@ -521,16 +521,11 @@ a:focus-visible, button:focus-visible {
   margin-bottom: 12px;
 }
 
-/* O video institucional entra aqui, e nao em "Servico sendo feito": aquela
-   faixa e so bancada, e este mostra a pessoa e a sala, que e justamente o
-   assunto desta secao. Como terceira coluna ele nao acrescenta altura
-   nenhuma, porque o cartao do endereco ja e alto por causa do mapa. */
 .onde-grade {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(240px, .85fr) 232px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
   gap: 18px;
 }
-.video-sala { align-self: stretch; }
 address {
   color: var(--texto);
   font-style: normal;
@@ -760,7 +755,10 @@ blockquote p {
   .onde-grade {
     grid-template-columns: 1fr;
   }
-  .video-sala { justify-self: center; }
+  /* Os tres videos continuam em fileira e so encolhem juntos: cair para duas
+     colunas deixaria o terceiro sozinho na segunda linha. */
+  .videos-grade { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .video-card { max-width: none; }
   .galeria,
   .avaliacoes-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -791,10 +789,10 @@ blockquote p {
     grid-template-columns: minmax(0, 1fr);
     justify-items: center;
   }
-  /* No mobile o vazio horizontal nao existe, entao o video volta a crescer.
-     max-width precisa ser anulado, senao venceria o width. */
+  /* Em coluna unica, tres videos 9:16 empilhados viram rolagem demais, entao
+     aqui a largura fica menor do que no desktop. */
   .video-card {
-    width: min(100%, 300px);
+    width: min(100%, 270px);
     max-width: none;
   }
   .mapa-facade { aspect-ratio: 4 / 3; }
