@@ -1,44 +1,51 @@
 # Site da Ceres · soluções em tecnologia
 
-Site de página única da Ceres, feito para revisão do Bruno antes de qualquer publicação em domínio próprio.
-
-> Esta é uma versão de revisão. O site continua com `noindex`, e o `Disallow: /` do `robots.txt` deve sair junto com o `noindex` somente depois da aprovação do Bruno e da mudança para o domínio próprio. Só então o schema.org passa a valer para busca.
+Site de página única da Ceres. Publicado na Vercel, projeto `ceres-tecnologia`, domínio `cerestecnologia.com.br`.
 
 ## Decisões
 
-- Tema preto dominante porque a marca da Ceres, no cartão final do vídeo do próprio cliente, é branca sobre preto.
+- Tema escuro dominante porque a marca da Ceres é branca sobre fundo escuro. O preto puro `#0d0d0d` original endurecia a página e foi trocado por um grafite fosco `#23262b`. Todo texto, o amarelo da marca e o wordmark branco ficam acima de 10:1 (AAA).
+- Ao mudar `--preto` no `:root`, mudar junto o `rgba()` do `.topo` e o `<meta name="theme-color">` do `index.html`. Esses dois não usam a variável.
 - `@cerestec` não foi suposto: aparece como marca d'água nos vídeos que o Bruno enviou.
-- O vídeo do Instagram é vídeo institucional do Bruno, não filmagem de conserto. A legenda anterior descrevia algo que o vídeo não mostrava.
+- O vídeo do Instagram é o Bruno, dono da Ceres, e fica no hero como primeira prova social da página.
 - Os outros dois vídeos são montagem de computador e computador montado. A legenda de cada um diz o serviço mostrado.
-- Mapa e vídeo são opt-in: nada de terceiro e nenhum `.mp4` carrega antes de um clique.
+- Mapa e vídeo são opt-in: nada de terceiro e nenhum `.mp4` carrega antes de um clique. O hero carrega só o poster do vídeo, não o vídeo.
+- As fotos da galeria foram recortadas para 3:4 no arquivo-fonte. Antes eram proporções misturadas forçadas no mesmo slot por `object-fit: cover`, e o corte caía em lugar errado.
 - O WhatsApp está ativo. O único ponto de edição para trocar o número fica no fim do `index.html`, na constante `WHATSAPP`.
 - Cada cartão de serviço abre o WhatsApp com uma mensagem própria, usando `data-msg`.
 - A nota 5,0 com 229 avaliações aparece em destaque na página para conversão. `aggregateRating` não é emitido porque avaliação da própria empresa no site da própria empresa é self-serving e não é elegível a rich result para `LocalBusiness`/`Organization`.
 
 ## Dados locais
 
-O endereço confirmado é Rua Cardoso de Morais, 145 - Sl 411 - Bonsucesso, Rio de Janeiro/RJ, CEP 21032-025. Antes do domínio próprio, ainda é preciso o ok do Bruno para o número e a sala.
+O endereço é Rua Cardoso de Morais, 145 - Sl 411 - Bonsucesso, Rio de Janeiro/RJ, CEP 21032-025, confirmado pelo Bruno.
+
+O telefone é `(21) 99143-7505`, confirmado pelo Bruno como o mesmo número do WhatsApp.
 
 O link do perfil no Google usa `cid`, que é canônico e permanente. Não é link de busca que expira.
 
-O `geo` foi removido porque a coordenada disponível não é confiável. O mapa passou a abrir por nome do negócio e endereço, e continua opt-in.
-
-O telefone confirmado no perfil é `(21) 99143-7505`. Antes do domínio próprio, ainda é preciso o Bruno confirmar que este telefone é o mesmo número do WhatsApp da Ceres.
+O `geo` foi removido porque a coordenada disponível não é confiável. O mapa abre por nome do negócio e endereço, e continua opt-in.
 
 O Google Ads bloqueia anúncio pago de assistência técnica terceirizada ao consumidor. Isso torna o orgânico e o perfil local o canal viável no Google, então o `LocalBusiness` e o NAP consistente têm peso maior neste site.
 
-O domínio não foi perdido: a empresa perdeu o site publicado na Wix, não o domínio. Não é preciso comprar domínio novo; basta apontar o DNS ou transferir.
+O domínio antigo era `cerestecnologia.com`, na Wix. Foi comprado um domínio novo no Registro.br, `cerestecnologia.com.br`, e o site passou a ser servido pela Vercel.
 
-## O que falta
+## Publicação
 
-| Item | Por que falta |
-|---|---|
-| Logo em arquivo | Existe cartão de marca no fim do vídeo, mas não arquivo próprio |
+O deploy é pela Vercel, projeto `ceres-tecnologia` no escopo `naua-jorge-s-projects`.
 
-## Confirmar antes do domínio próprio
+```
+vercel deploy          # preview
+vercel deploy --prod   # produção
+```
 
-- Confirmar com o Bruno que `(21) 99143-7505` é o mesmo número do WhatsApp da Ceres.
-- Confirmar com o Bruno o número e a sala do endereço antes da publicação em domínio próprio.
+DNS no Registro.br:
+
+```
+@      A       76.76.21.21
+www    CNAME   cname.vercel-dns.com.
+```
+
+O `vercel.json` define CSP, HSTS e cache. O `.vercelignore` mantém `.qa/` e este README fora do deploy.
 
 ## Estrutura
 
@@ -46,8 +53,13 @@ O domínio não foi perdido: a empresa perdeu o site publicado na Wix, não o do
 index.html      página inteira
 style.css       estilo
 assets/         fotos, posters e vídeos reais da Ceres
-robots.txt      bloqueio de indexação enquanto é rascunho
+robots.txt      libera indexação e aponta o sitemap
+sitemap.xml     uma URL, o domínio próprio
+vercel.json     headers de segurança e cache
+.qa/            capturas de revisão, fora do deploy e do git
 ```
+
+As capturas em `.qa/` são de uma versão anterior da página e não servem de referência visual.
 
 ## Como abrir
 

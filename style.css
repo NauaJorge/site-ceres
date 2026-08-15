@@ -1,12 +1,17 @@
 /* Ceres · soluções em tecnologia */
 
+/* Grafite fosco, nao preto puro. O #0d0d0d antigo endurecia a pagina inteira.
+   Este tom e claro o bastante para se ver a diferenca lado a lado com o preto
+   antigo, e ainda mantem todo o texto, o amarelo da marca e o wordmark branco
+   da logo acima de 10:1 (AAA). Ao mudar --preto, mudar junto o rgba do .topo
+   e o meta theme-color do index.html, que nao usam a variavel. */
 :root {
-  --preto: #0d0d0d;
-  --superficie: #161616;
-  --superficie-2: #1c1c1c;
-  --linha: #2f2f2f;
-  --texto: #f4f4f4;
-  --texto-2: #c2c2c2;
+  --preto: #23262b;
+  --superficie: #2d3138;
+  --superficie-2: #30343b;
+  --linha: #4a505a;
+  --texto: #f4f5f6;
+  --texto-2: #c3c8d0;
   --amarelo: #ffd400;
   --amarelo-escuro: #e6bf00;
   --sobre-amarelo: #1a1500;
@@ -76,8 +81,16 @@ a:focus-visible, button:focus-visible {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(13, 13, 13, .96);
-  border-bottom: 1px solid rgba(255,255,255,.14);
+  background: rgba(35, 38, 43, .88);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+/* Sem suporte a backdrop-filter o topo precisa voltar a ser opaco,
+   senao o conteudo passa por tras e o wordmark branco some. */
+@supports not (backdrop-filter: blur(10px)) {
+  .topo { background: rgba(35, 38, 43, .97); }
 }
 
 .faixa {
@@ -154,7 +167,7 @@ a:focus-visible, button:focus-visible {
   margin: 0 auto;
   padding: 58px 20px 54px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 304px);
   gap: 42px;
   align-items: center;
 }
@@ -259,16 +272,22 @@ a:focus-visible, button:focus-visible {
   font-size: 15px;
 }
 
-.hero-foto {
-  width: min(100%, 360px);
+/* O video do hero e vertical 9:16. A 304px de largura ele fecha em 540px de
+   altura, que e o teto antes de empurrar o h1 e os botoes para fora da dobra. */
+.hero-video {
+  width: min(100%, 304px);
   justify-self: end;
 }
-.hero-foto img {
-  width: 100%;
-  max-height: 520px;
-  object-fit: cover;
+.hero-video .video-facade {
   border-radius: var(--raio);
+  overflow: hidden;
   border: 1px solid rgba(255,255,255,.14);
+  background: var(--superficie);
+}
+.hero-video figcaption {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 13px;
 }
 
 .secao {
@@ -399,10 +418,18 @@ a:focus-visible, button:focus-visible {
   padding: 0 14px 14px;
 }
 .video-facade,
-.video-card video {
+.video-card video,
+.hero-video video {
   width: 100%;
   aspect-ratio: 9 / 16;
   background: var(--preto);
+}
+/* O JS troca o botao por um <video> de verdade no clique. No hero ele precisa
+   herdar a moldura do botao, senao a borda e o raio somem no play. */
+.hero-video video {
+  border-radius: var(--raio);
+  border: 1px solid rgba(255,255,255,.14);
+  object-fit: cover;
 }
 .video-facade {
   position: relative;
@@ -543,22 +570,33 @@ blockquote p {
   align-items: start;
 }
 .sobre-texto p + p { margin-top: 14px; }
-.video-sobre { margin-top: 22px; }
+
+/* As quatro fotos vem do Instagram em proporcoes diferentes (3:4 e 9:16).
+   Deixar cada uma com a sua altura era o que desarrumava a secao, entao todas
+   entram no mesmo slot 3:4 e o grid fecha 2x2 certinho. */
 .galeria {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  gap: 14px;
+  align-content: start;
 }
 .galeria figure {
   min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 .galeria img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: var(--raio);
+  border: 1px solid var(--linha);
 }
-.galeria img { border: 1px solid var(--linha); }
+.galeria figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+  line-height: 1.35;
+}
 
 .link {
   color: var(--amarelo);
@@ -632,9 +670,12 @@ blockquote p {
     grid-template-columns: 1fr;
     padding-top: 34px;
   }
-  .hero-foto {
+  /* No mobile o video entra depois de todo o texto do hero. A 300px ele
+     acrescenta 533px de rolagem antes de "Serviços", entao encolhe junto
+     com a viewport. */
+  .hero-video {
     justify-self: center;
-    width: min(100%, 340px);
+    width: min(78vw, 300px);
   }
   .cartoes,
   .passos,
@@ -674,7 +715,6 @@ blockquote p {
     width: min(100%, 300px);
   }
   .mapa-facade { aspect-ratio: 4 / 3; }
-  .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .flutuante {
     right: 12px;
     bottom: 12px;
