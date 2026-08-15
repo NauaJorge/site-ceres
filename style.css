@@ -110,7 +110,11 @@ a:focus-visible, button:focus-visible {
 }
 
 /* Logo oficial da Ceres. O arquivo e o wordmark em branco sobre fundo
-   transparente, entao ele so funciona sobre o preto da marca. */
+   transparente, entao ele so funciona sobre o preto da marca.
+   O PNG estava com 866px de largura para aparecer a 143px, e o topo e fixo,
+   entao ele pesava no primeiro paint. Agora sao 286px (2x do maior uso), em
+   webp com o png ao lado como reserva. */
+.marca picture { display: block; }
 .marca-logo {
   display: block;
   width: auto;
