@@ -48,11 +48,6 @@ a:focus-visible, button:focus-visible {
   outline: 3px solid #ffffff;
   outline-offset: 3px;
 }
-.pendencia a:focus-visible, .pendencia button:focus-visible {
-  outline: 3px solid #4a4212;
-  outline-offset: 3px;
-}
-
 .sr {
   position: absolute;
   width: 1px;
@@ -76,15 +71,6 @@ a:focus-visible, button:focus-visible {
   min-height: 44px;
 }
 .pular:focus { left: 12px; top: 12px; }
-
-.aviso-preview {
-  background: var(--amarelo);
-  color: var(--sobre-amarelo);
-  padding: 10px 20px;
-  font-size: 15px;
-  text-align: center;
-  line-height: 1.35;
-}
 
 .topo {
   position: sticky;
@@ -459,29 +445,6 @@ a:focus-visible, button:focus-visible {
   margin-bottom: 12px;
 }
 
-.pendencia {
-  border: 1px solid #ead25f;
-  background: #fff8d6;
-  color: #4a4212;
-  border-radius: var(--raio);
-  padding: 12px 14px;
-  font-size: 14px;
-  margin: 14px 0;
-}
-.pendencia::before {
-  content: "Falta confirmar com a Ceres";
-  display: block;
-  font-size: 10px;
-  font-weight: 850;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  color: #4a4212;
-  margin-bottom: 5px;
-}
-.pendencia-discreta { font-size: 14px; padding: 10px 12px; }
-.pendencia-bloco { font-size: 15px; padding: 16px; }
-.pendencia-mini { font-size: 14px; padding: 10px 12px; }
-
 .onde-grade {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
@@ -586,12 +549,10 @@ blockquote p {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
-.galeria figure,
-.pendencia-foto {
+.galeria figure {
   min-height: 0;
 }
-.galeria img,
-.pendencia-foto {
+.galeria img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;

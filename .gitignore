@@ -1,1 +1,4 @@
 .qa/
+
+.vercel
+.env*
