@@ -296,14 +296,17 @@ a:focus-visible, button:focus-visible {
   padding: 64px 20px;
 }
 
+/* A faixa alternada sangra na largura toda, mas o conteudo dela tem que cair
+   na mesma coluna das outras secoes. Antes isso era feito com max-width e
+   margem automatica em cada filho, e qualquer regra posterior com `margin:`
+   abreviado zerava essas margens: o h2 e o texto de apoio iam para a borda e
+   ficavam 140px fora da coluna do resto. Centralizar pelo padding do proprio
+   container nao tem esse efeito colateral. */
 .secao-alt {
   background: var(--superficie-2);
   max-width: none;
-}
-.secao-alt > * {
-  max-width: var(--max);
-  margin-left: auto;
-  margin-right: auto;
+  padding-left: max(20px, calc((100% - var(--max)) / 2 + 20px));
+  padding-right: max(20px, calc((100% - var(--max)) / 2 + 20px));
 }
 
 .secao h2,
@@ -395,6 +398,28 @@ a:focus-visible, button:focus-visible {
   font-weight: 800;
 }
 .link-servico:hover { color: var(--texto); }
+
+/* Sao 7 servicos num grid de 3 colunas: o setimo caia sozinho na ultima linha
+   com dois vaos vazios ao lado. Ele passa a ocupar a linha inteira e vira um
+   cartao deitado, com o texto a esquerda e a chamada a direita. */
+.cartao-largo {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+}
+.cartao-largo .ico-cartao {
+  margin-bottom: 0;
+  flex: 0 0 auto;
+}
+.cartao-largo .cartao-corpo { flex: 1 1 380px; }
+.cartao-largo .link-servico {
+  flex: 0 0 auto;
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
 .link-servico svg {
   width: 18px;
   height: 18px;
@@ -402,11 +427,14 @@ a:focus-visible, button:focus-visible {
   flex: 0 0 auto;
 }
 
+/* Os dois videos sao 9:16 e travam em 320px, entao a dupla ocupa 658px de uma
+   faixa de 1120px. Centralizar evita o vao morto de 460px a direita. */
 .videos-grade {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 320px));
   gap: 18px;
   align-items: start;
+  justify-content: center;
 }
 
 .video-card {
@@ -563,20 +591,21 @@ blockquote p {
   margin: 14px 0 0;
 }
 
-.sobre-grade {
-  display: grid;
-  grid-template-columns: minmax(280px, .8fr) minmax(0, 1.2fr);
-  gap: 34px;
-  align-items: start;
-}
+/* O texto do "Sobre" sao dois paragrafos curtos. Ao lado da galeria em duas
+   colunas ele deixava uns 900px de vao vazio a esquerda, entao os dois blocos
+   viraram um embaixo do outro e a galeria ocupa a largura inteira. */
+/* O max-width vai no paragrafo, nao no bloco: .secao-alt > * centraliza os
+   filhos em 1120px, entao estreitar o bloco jogaria o texto para o meio da
+   faixa, desalinhado do h2. */
+.sobre-texto { margin-bottom: 30px; }
+.sobre-texto p { max-width: 62ch; }
 .sobre-texto p + p { margin-top: 14px; }
 
-/* As quatro fotos vem do Instagram em proporcoes diferentes (3:4 e 9:16).
-   Deixar cada uma com a sua altura era o que desarrumava a secao, entao todas
-   entram no mesmo slot 3:4 e o grid fecha 2x2 certinho. */
+/* As quatro fotos foram recortadas para 3:4 no arquivo-fonte, entao a fileira
+   fecha sem corte nenhum do object-fit. */
 .galeria {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   align-content: start;
 }
@@ -610,8 +639,11 @@ blockquote p {
   background: var(--preto);
   padding: 64px 20px;
 }
+/* Menos 40px porque aqui o padding lateral fica no container, e nao dentro da
+   caixa de 1120px como nas .secao. Sem isso a chamada final nasce 20px a
+   esquerda de todo o resto da pagina. */
 .chamada-final > div {
-  max-width: var(--max);
+  max-width: calc(var(--max) - 40px);
   margin: 0 auto;
 }
 .chamada-final p {
@@ -679,10 +711,10 @@ blockquote p {
   }
   .cartoes,
   .passos,
-  .onde-grade,
-  .sobre-grade {
+  .onde-grade {
     grid-template-columns: 1fr;
   }
+  .galeria { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 640px) {
