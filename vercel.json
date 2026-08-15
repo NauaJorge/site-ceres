@@ -2,6 +2,20 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.cerestecnologia.com.br" }],
+      "destination": "https://cerestecnologia.com.br/",
+      "permanent": true
+    },
+    {
+      "source": "/:caminho+",
+      "has": [{ "type": "host", "value": "www.cerestecnologia.com.br" }],
+      "destination": "https://cerestecnologia.com.br/:caminho+",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
