@@ -269,6 +269,8 @@ a:focus-visible, button:focus-visible {
   text-align: center;
   margin-top: 12px;
   font-size: 13px;
+  line-height: 1.35;
+  color: var(--texto-2);
 }
 
 .secao {
@@ -425,12 +427,14 @@ a:focus-visible, button:focus-visible {
   display: flex;
   flex-direction: column;
 }
-/* Sem min-height fixo: os dois cartoes esticam juntos pelo grid, entao a
-   legenda mais curta nao precisa mais reservar altura que nao usa. */
 .video-card figcaption {
   padding: 12px 14px 14px;
   margin-top: 0;
   font-size: 13px;
+  line-height: 1.35;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
 }
 .video-facade,
 .video-card video,
@@ -461,7 +465,7 @@ a:focus-visible, button:focus-visible {
 }
 /* No canto, e nao no centro. Centralizado, o triangulo caia em cima do
    assunto de todo quadro: as maos na bancada num video, e o texto da placa
-   que o Bruno segura no outro. O disco escuro garante o contraste sobre
+   que aparece nos vídeos. O disco escuro garante o contraste sobre
    qualquer imagem, sem precisar escurecer o quadro inteiro. */
 .play {
   position: absolute;
