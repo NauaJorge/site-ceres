@@ -7,8 +7,11 @@ Site de página única da Ceres. Publicado na Vercel, projeto `ceres-tecnologia`
 - Tema escuro dominante porque a marca da Ceres é branca sobre fundo escuro. O preto puro `#0d0d0d` original endurecia a página e foi trocado por um grafite fosco `#23262b`. Todo texto, o amarelo da marca e o wordmark branco ficam acima de 10:1 (AAA).
 - Ao mudar `--preto` no `:root`, mudar junto o `rgba()` do `.topo` e o `<meta name="theme-color">` do `index.html`. Esses dois não usam a variável.
 - `@cerestec` não foi suposto: aparece como marca d'água nos vídeos que o Bruno enviou.
-- O vídeo do Instagram é o Bruno, dono da Ceres, e fica no hero como primeira prova social da página.
-- Os outros dois vídeos são montagem de computador e computador montado. A legenda de cada um diz o serviço mostrado.
+- São quatro vídeos, todos do Instagram da Ceres:
+  - hero: o Bruno na bancada, primeira prova social da página;
+  - "Serviço sendo feito": montagem de computador e computador montado, os dois de bancada;
+  - "Onde estamos": o Bruno na sala, mostrando a pessoa e o espaço. Fica aqui e não na faixa de bancada porque não é demonstração de serviço, e como terceira coluna não acrescenta altura, já que o cartão do endereço é alto por causa do mapa.
+- O botão de play fica no canto inferior esquerdo, não no centro. Centralizado ele caía em cima do assunto de todo quadro: as mãos na bancada num vídeo, o texto da placa que o Bruno segura no outro.
 - Mapa e vídeo são opt-in: nada de terceiro e nenhum `.mp4` carrega antes de um clique. O hero carrega só o poster do vídeo, não o vídeo.
 - As fotos da galeria foram recortadas para 3:4 no arquivo-fonte. Antes eram proporções misturadas forçadas no mesmo slot por `object-fit: cover`, e o corte caía em lugar errado.
 - O WhatsApp está ativo. O único ponto de edição para trocar o número fica no fim do `index.html`, na constante `WHATSAPP`.

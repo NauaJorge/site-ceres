@@ -478,18 +478,33 @@ a:focus-visible, button:focus-visible {
   height: 100%;
   object-fit: cover;
 }
+/* No canto, e nao no centro. Centralizado, o triangulo caia em cima do
+   assunto de todo quadro: as maos na bancada num video, e o texto da placa
+   que o Bruno segura no outro. O disco escuro garante o contraste sobre
+   qualquer imagem, sem precisar escurecer o quadro inteiro. */
 .play {
   position: absolute;
-  inset: 0;
+  inset: auto auto 12px 12px;
   display: grid;
-  place-items: center;
 }
-.play svg {
+.play::before {
+  content: "";
+  grid-area: 1 / 1;
   width: 54px;
   height: 54px;
-  fill: var(--amarelo);
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,.7));
+  border-radius: 50%;
+  background: rgba(13, 15, 18, .62);
+  box-shadow: 0 2px 12px rgba(0,0,0,.5);
 }
+.play svg {
+  grid-area: 1 / 1;
+  place-self: center;
+  width: 26px;
+  height: 26px;
+  margin-left: 3px;
+  fill: var(--amarelo);
+}
+.video-facade:hover .play::before { background: rgba(13, 15, 18, .82); }
 
 .num {
   display: inline-flex;
@@ -506,11 +521,16 @@ a:focus-visible, button:focus-visible {
   margin-bottom: 12px;
 }
 
+/* O video institucional entra aqui, e nao em "Servico sendo feito": aquela
+   faixa e so bancada, e este mostra a pessoa e a sala, que e justamente o
+   assunto desta secao. Como terceira coluna ele nao acrescenta altura
+   nenhuma, porque o cartao do endereco ja e alto por causa do mapa. */
 .onde-grade {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(240px, .85fr) 232px;
   gap: 18px;
 }
+.video-sala { align-self: stretch; }
 address {
   color: var(--texto);
   font-style: normal;
@@ -740,6 +760,7 @@ blockquote p {
   .onde-grade {
     grid-template-columns: 1fr;
   }
+  .video-sala { justify-self: center; }
   .galeria,
   .avaliacoes-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
