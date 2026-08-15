@@ -700,23 +700,26 @@ blockquote p {
 .credito a:hover,
 .credito a:focus-visible { color: var(--amarelo); }
 
+/* So o icone, em botao redondo. Com a palavra "WhatsApp" escrita, o pulso
+   acompanhava a pilula inteira e ficava chamativo demais para um elemento
+   que fica fixo na tela a pagina toda. O texto continua no HTML como .sr,
+   entao leitor de tela e busca continuam encontrando. */
 .flutuante {
   position: fixed;
   right: 16px;
   bottom: 16px;
   z-index: 60;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
   background: var(--amarelo);
   color: var(--sobre-amarelo);
-  font-weight: 850;
-  min-height: 48px;
-  padding: 12px 18px;
-  border-radius: 999px;
+  border-radius: 50%;
   text-decoration: none;
-  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  box-shadow: 0 8px 22px rgba(0,0,0,.34);
 }
+.flutuante .ico { width: 28px; height: 28px; }
 
 /* Pulso do botao flutuante. O anel e um ::before atras do botao, e nao um
    box-shadow animado, porque animar box-shadow repinta a cada quadro; assim
@@ -736,9 +739,9 @@ blockquote p {
 .flutuante:focus-visible::before { animation-play-state: paused; }
 
 @keyframes pulso-whatsapp {
-  0%   { transform: scale(1);    opacity: .55; }
-  70%  { transform: scale(1.28); opacity: 0; }
-  100% { transform: scale(1.28); opacity: 0; }
+  0%   { transform: scale(1);    opacity: .45; }
+  65%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
 }
 
 @media (max-width: 920px) {
